@@ -1,5 +1,8 @@
 def recommend_outfit(age, gender):
-    gender = gender.lower()
+    gender = gender.strip().lower()
+
+    if age < 0:
+        return "Invalid age entered."
 
     if gender == "male":
         if age <= 12:
@@ -25,12 +28,34 @@ def recommend_outfit(age, gender):
         else:
             return "Comfortable kurta or cardigan with pants"
 
+    elif gender in ["non-binary", "other"]:
+        if age <= 12:
+            return "Comfortable casual wear"
+        elif age <= 20:
+            return "Trendy gender-neutral outfit"
+        elif age <= 35:
+            return "Smart-casual neutral fashion"
+        elif age <= 55:
+            return "Professional neutral outfit"
+        else:
+            return "Cozy and comfortable neutral wear"
+
     else:
-        return "Invalid gender. Please enter 'male' or 'female'."
+        return "Invalid gender. Please enter 'male', 'female', or 'non-binary'."
 
-# Main code
-age_input = int(input("Enter your age: "))
-gender_input = input("Enter your gender (male/female): ")
 
-outfit = recommend_outfit(age_input, gender_input)
-print("Recommended outfit:", outfit)
+def main():
+    try:
+        age_input = int(input("Enter your age: "))
+    except ValueError:
+        print("Please enter a valid number for age.")
+        return
+
+    gender_input = input("Enter your gender (male/female/non-binary): ")
+
+    outfit = recommend_outfit(age_input, gender_input)
+    print("\n👕 Recommended outfit:", outfit)
+
+
+if __name__ == "__main__":
+    main()
