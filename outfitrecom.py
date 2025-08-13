@@ -46,12 +46,12 @@ def recommend_outfit(age, gender):
 
 def main():
     try:
-        age_input = int(input("Enter your age: "))
+        age_input = int(input("28: "))
     except ValueError:
         print("Please enter a valid number for age.")
         return
 
-    gender_input = input("Enter your gender (male/female/non-binary): ")
+    gender_input = input("female: ")
 
     outfit = recommend_outfit(age_input, gender_input)
     print("\n👕 Recommended outfit:", outfit)
