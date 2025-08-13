@@ -4,11 +4,11 @@ def recommend_outfit(age, gender):
     if gender == "male":
         if age <= 12:
             return "T-shirt and shorts"
-        elif age <= 19:
+        elif age <= 20:
             return "Hoodie and jeans"
         elif age <= 35:
             return "Casual shirt and chinos"
-        elif age <= 60:
+        elif age <= 55:
             return "Formal shirt and trousers"
         else:
             return "Sweater and comfortable pants"
@@ -20,7 +20,7 @@ def recommend_outfit(age, gender):
             return "Jeans and crop top"
         elif age <= 35:
             return "Kurti with jeans or a dress"
-        elif age <= 60:
+        elif age <= 55:
             return "Saree or formal wear"
         else:
             return "Comfortable kurta or cardigan with pants"
