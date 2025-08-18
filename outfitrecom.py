@@ -1,14 +1,17 @@
 def recommend_outfit(age, gender):
-    gender = gender.lower()
+    gender = gender.strip().lower()
+
+    if age < 0:
+        return "Invalid age entered."
 
     if gender == "male":
         if age <= 12:
             return "T-shirt and shorts"
-        elif age <= 19:
+        elif age <= 20:
             return "Hoodie and jeans"
         elif age <= 35:
             return "Casual shirt and chinos"
-        elif age <= 60:
+        elif age <= 55:
             return "Formal shirt and trousers"
         else:
             return "Sweater and comfortable pants"
@@ -20,18 +23,41 @@ def recommend_outfit(age, gender):
             return "Jeans and crop top"
         elif age <= 35:
             return "Kurti with jeans or a dress"
-        elif age <= 60:
+        elif age <= 55:
             return "Saree or formal wear"
         else:
             return "Comfortable kurta or cardigan with pants"
 
-    else:
-        return "Invalid gender. Please enter 'male' or 'female'."
+    elif gender in ["non-binary", "other"]:
+        if age <= 12:
+            return "Comfortable casual wear"
+        elif age <= 20:
+            return "Trendy gender-neutral outfit"
+        elif age <= 35:
+            return "Smart-casual neutral fashion"
+        elif age <= 55:
+            return "Professional neutral outfit"
+        else:
+            return "Cozy and comfortable neutral wear"
 
-# Main code
-age_input = int(input("Enter your age: "))
-gender_input = input("Enter your gender (male/female): ")
+    else:
+        return "Invalid gender. Please enter 'male', 'female', or 'non-binary'."
+
+
+def main():
+    try:
+        age_input = int(input("28: "))
+    except ValueError:
+        print("Please enter a valid number for age.")
+        return
+
+    gender_input = input("female: ")
+
+    outfit = recommend_outfit(age_input, gender_input)
+    print("\n👕 Recommended outfit:", outfit)
 
 outfit = recommend_outfit(age_input, gender_input)
 print("Recommended outfit:", outfit)
-#Changes made
+
+if __name__ == "__main__":
+    main()
