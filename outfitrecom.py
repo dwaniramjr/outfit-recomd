@@ -34,3 +34,4 @@ gender_input = input("Enter your gender (male/female): ")
 
 outfit = recommend_outfit(age_input, gender_input)
 print("Recommended outfit:", outfit)
+#Changes made
