@@ -56,6 +56,8 @@ def main():
     outfit = recommend_outfit(age_input, gender_input)
     print("\n👕 Recommended outfit:", outfit)
 
+outfit = recommend_outfit(age_input, gender_input)
+print("Recommended outfit:", outfit)
 
 if __name__ == "__main__":
     main()
